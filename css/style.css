@@ -62,3 +62,11 @@ aside{
     margin: 10px;
     background-color: white;
 }
+
+/* style the metrics */
+table{
+    border: 3px solid black;
+    padding: 5px;
+    margin: 5px;
+    background-color: #45B8AC;
+}

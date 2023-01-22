@@ -1,4 +1,4 @@
-// define the gaem variables and metrics here 
+// define the game variables and metrics here 
 
 
 
