@@ -1,14 +1,15 @@
-// define variables that select the buttons we need 
+// define variables that select the buttons we need, our query selectors
 let feedTomagotchi = document.querySelector("#feedBtn")
 let nameTomagotchi = document.querySelector("#name")
 let sleepTomagotchi = document.querySelector("#sleepBtn")
-
+let playTomagotchi = document.querySelector("#playBtn")
 
 class Tomagotchi {
     constructor(){
         this.name = prompt("What would you like to name Baby Yoda?")
         this.energy = document.getElementById("energy")
         this.sleep = document.getElementById("sleep")
+        this.happiness = document.getElementById("happiness")
     }
 
     // method to name the tomagotchi
@@ -29,6 +30,10 @@ class Tomagotchi {
         document.body.style.backgroundImage = "url(/images/night-background.gif)"
     }
 
+    // method to play with tomagotchi 
+    playClick () {
+        this.happiness.value += 5
+    }
 
 
 
@@ -54,6 +59,8 @@ feedTomagotchi.addEventListener("click", function(){
 sleepTomagotchi.addEventListener("click", function(){
     tomagotchiInstance.sleepClick()})
 
+playTomagotchi.addEventListener("click", function(){
+    tomagotchiInstance.playClick()})
 
 
 // ------------------------------------------------------------------
@@ -113,16 +120,16 @@ xout.addEventListener("click", instructionsClose)
 
 
 // when we click "Play with lighsaber" baby yoda's happiness will increase
-let playTomagotchi = document.querySelector("#playBtn")
-let happiness = document.getElementById("happiness")
-function playClick () {
+// let playTomagotchi = document.querySelector("#playBtn")
+// let happiness = document.getElementById("happiness")
+// function playClick () {
     
-    //access the value of the happiness bar 
-    console.log(happiness.value)
-    happiness.value += 50
-    console.log(happiness.value)
-}
-playTomagotchi.addEventListener("click", playClick)
+//     //access the value of the happiness bar 
+//     console.log(happiness.value)
+//     happiness.value += 50
+//     console.log(happiness.value)
+// }
+// playTomagotchi.addEventListener("click", playClick)
 
 
 // Every 5 seconds baby yoda's age will increase 
