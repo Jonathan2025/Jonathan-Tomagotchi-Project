@@ -1,11 +1,14 @@
 // define variables that select the buttons we need 
 let feedTomagotchi = document.querySelector("#feedBtn")
 let nameTomagotchi = document.querySelector("#name")
+let sleepTomagotchi = document.querySelector("#sleepBtn")
+
 
 class Tomagotchi {
     constructor(){
         this.name = prompt("What would you like to name Baby Yoda?")
         this.energy = document.getElementById("energy")
+        this.sleep = document.getElementById("sleep")
     }
 
     // method to name the tomagotchi
@@ -18,18 +21,38 @@ class Tomagotchi {
         this.energy.value += 5
         console.log(this.energy.value)
     }
+
+    // method to allow tomagotchi to sleep 
+    sleepClick () {
+        this.sleep.value += 5
+        // change the background to night time
+        document.body.style.backgroundImage = "url(/images/night-background.gif)"
+    }
+
+
+
+
+
+
 }
+
+
+
 
 
 const tomagotchiInstance = new Tomagotchi()
 //call the name method from the class to name the tomagotchi
 tomagotchiInstance.nameTomagotchi()
 
+
+//EVENT LISTENERS
+
 // in order to use a method from the class, we need to close over the new instance of the class with a function
 feedTomagotchi.addEventListener("click", function(){
     tomagotchiInstance.feedClick()})
 
-
+sleepTomagotchi.addEventListener("click", function(){
+    tomagotchiInstance.sleepClick()})
 
 
 
@@ -74,18 +97,18 @@ xout.addEventListener("click", instructionsClose)
 
 //when we click on the "let tomagotchi sleep" button it will increase his sleep level AND
 // change the background image to night time
-let sleepTomagotchi = document.querySelector("#sleepBtn")
-let sleep = document.getElementById("sleep")
-function sleepClick () {
+// let sleepTomagotchi = document.querySelector("#sleepBtn")
+// let sleep = document.getElementById("sleep")
+// function sleepClick () {
     
-    //access the value of the sleep bar 
-    console.log(sleep.value)
-    sleep.value += 50
-    console.log(sleep.value)
-    // change the background to night time
-    document.body.style.backgroundImage = "url(/images/night-background.gif)"
-}
-sleepTomagotchi.addEventListener("click", sleepClick)
+//     //access the value of the sleep bar 
+//     console.log(sleep.value)
+//     sleep.value += 50
+//     console.log(sleep.value)
+//     // change the background to night time
+//     document.body.style.backgroundImage = "url(/images/night-background.gif)"
+// }
+// sleepTomagotchi.addEventListener("click", sleepClick)
 
 
 
