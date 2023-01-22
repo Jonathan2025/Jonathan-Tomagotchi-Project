@@ -3,6 +3,7 @@
 body{
     background-image: url(/images/day-background.gif);
     background-size:cover;
+    background-repeat: no-repeat;
     margin:0px;
     
 }
@@ -27,7 +28,7 @@ body{
 
 #yoda2{
     position:absolute;
-    display:block;
+    display:none;
     height:15%;
     width:10%;
     animation: jump 0.5s ease-in infinite;
@@ -36,11 +37,10 @@ body{
 #yoda3{
     text-align: center;
     position:absolute;
-    display:block;
+    display:none;
     height:15%;
     width:10%;
     animation: jump 0.5s ease-in infinite;
-    
 }
 
 /* Jump animation for yodas */
@@ -72,5 +72,5 @@ table{
 }
 
 
-/* make all the buttons bigger */
+
 

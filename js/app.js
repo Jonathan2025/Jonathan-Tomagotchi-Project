@@ -57,3 +57,27 @@ function playClick () {
     console.log(happiness.value)
 }
 playTomagotchi.addEventListener("click", playClick)
+
+
+// Every 5 seconds baby yoda's age will increase 
+let ageTomagotchi = parseInt(document.querySelector("#ageNum").innerHTML) 
+// console.log(ageTomagotchi)
+// ageTomagotchi += 1
+// document.querySelector("#ageNum").innerHTML = ageTomagotchi
+
+// create a function that will increase the the age every few seconds
+ function increaseAge(){
+        ageTomagotchi += 1
+        document.querySelector("#ageNum").innerHTML = ageTomagotchi
+        
+ }
+
+
+ let interval = setInterval(increaseAge, 3000);
+ //basically setTimeout has 2 arguments, a) the anymonous function to run(clearInterval) after b)amount of time
+ // when yoda reaches 100 stop increasing the age
+ setTimeout(function(){ clearInterval(interval)}, 300000);
+
+
+
+
