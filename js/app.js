@@ -1,26 +1,33 @@
-// define the game variables and metrics here 
-// first we will try using a class WITH the feed crickets 
+// define variables that select the buttons we need 
 let feedTomagotchi = document.querySelector("#feedBtn")
+let nameTomagotchi = document.querySelector("#name")
 
 class Tomagotchi {
     constructor(){
+        this.name = prompt("What would you like to name Baby Yoda?")
         this.energy = document.getElementById("energy")
     }
 
+    // method to name the tomagotchi
+    nameTomagotchi(){
+        nameTomagotchi.innerHTML = this.name
+    }
 
+    // click feed button to increase tomagotchi's energy each time
     feedClick(){
-        this.energy.value -= 5
+        this.energy.value += 5
         console.log(this.energy.value)
     }
 }
 
 
-const instance = new Tomagotchi()
-//instance.feedClick()
+const tomagotchiInstance = new Tomagotchi()
+//call the name method from the class to name the tomagotchi
+tomagotchiInstance.nameTomagotchi()
 
 // in order to use a method from the class, we need to close over the new instance of the class with a function
 feedTomagotchi.addEventListener("click", function(){
-    instance.feedClick()})
+    tomagotchiInstance.feedClick()})
 
 
 
@@ -135,7 +142,7 @@ function changeTomagotchi(){
 
 // As time passes, baby yoda's energy, sleep and happiness will decrease
 function decreaseMetrics(){
-    //energy.value -= 10
+    energy.value -= 10
     sleep.value -= 10
     happiness.value -= 10
 }
