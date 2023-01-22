@@ -44,3 +44,16 @@ function sleepClick () {
     document.body.style.backgroundImage = "url(/images/night-background.gif)"
 }
 sleepTomagotchi.addEventListener("click", sleepClick)
+
+
+
+// when we click "Play with lighsaber" baby yoda's happiness will increase
+let playTomagotchi = document.querySelector("#playBtn")
+function playClick () {
+    let happiness = document.getElementById("happiness")
+    //access the value of the happiness bar 
+    console.log(happiness.value)
+    happiness.value += 50
+    console.log(happiness.value)
+}
+playTomagotchi.addEventListener("click", playClick)
