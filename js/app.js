@@ -59,17 +59,20 @@ class Tomagotchi {
         this.happiness.value += 5
     }
 
-    //setter method to increase the age of the tomagotchi every few seconds
+    //setter method to increase the age of the tomagotchi by 1, every few seconds
     increaseAge(){
         this.age.innerHTML = parseInt(this.age.innerHTML) + 1
-        //console.log(this.age.innerHTML)
-        //console.log(parseInt(this.age.innerHTML))
-        //this.age.innerHTML += 1
-        //console.log(parseInt(this.age.innerHTML))
     }
 
-
+    //setter method to decrease the metrics of the tomagotchi every few seconds
+    decreaseMetrics(){
+        energy.value -= 7
+        sleep.value -= 6
+        happiness.value -= 10
+    }
 }
+
+
 
 
 
@@ -96,12 +99,18 @@ playTomagotchi.addEventListener("click", function(){
 // SECTION 6 - Calling class methods that dont use event listeners
 
 // Increase age of tomagotchi
-// need to have explicit reference in order to work 
+// need to have explicit reference to the increaseAge method in order to work 
 let interval = setInterval(function(){tomagotchiInstance.increaseAge()}, 3000);
 //let interval = setInterval(function(){tomagotchiInstance.increaseAge()}, 3000);
     // basically setTimeout has 2 arguments, a) the anymonous function to run(clearInterval) after b)amount of time
     // when tomagotchi reaches 100 stop increasing the age
 setTimeout(function(){ clearInterval(interval)}, 300000);
+
+
+// Decrease the metrics of the tomagotchi every few seconds
+// call the decreaseMetrics function every 5 seconds
+let intervalDecrease = setInterval(function(){tomagotchiInstance.decreaseMetrics()}, 5000);
+setTimeout(function(){ clearInterval(intervalDecrease)}, 300000);
 
 
 // ------------------------------------------------------------------
@@ -149,16 +158,16 @@ function changeTomagotchi(){
  }
 
 
-// As time passes, baby yoda's energy, sleep and happiness will decrease
-function decreaseMetrics(){
-    energy.value -= 10
-    sleep.value -= 10
-    happiness.value -= 10
-}
+// // As time passes, baby yoda's energy, sleep and happiness will decrease
+// function decreaseMetrics(){
+//     energy.value -= 10
+//     sleep.value -= 10
+//     happiness.value -= 10
+// }
 
 
-// call the decreaseMetrics function every 5 seconds
-let intervalDecrease = setInterval(decreaseMetrics, 5000);
-// basically setTimeout has 2 arguments, a) the anymonous function to run(clearInterval) after b)amount of time
-// when yoda reaches 100 stop increasing the age
-setTimeout(function(){ clearInterval(intervalDecrease)}, 300000);
+// // call the decreaseMetrics function every 5 seconds
+// let intervalDecrease = setInterval(decreaseMetrics, 5000);
+// // basically setTimeout has 2 arguments, a) the anymonous function to run(clearInterval) after b)amount of time
+// // when yoda reaches 100 stop increasing the age
+// setTimeout(function(){ clearInterval(intervalDecrease)}, 300000);
