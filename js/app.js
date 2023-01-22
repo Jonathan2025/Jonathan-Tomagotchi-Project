@@ -113,29 +113,6 @@ let intervalDecrease = setInterval(function(){tomagotchiInstance.decreaseMetrics
 setTimeout(function(){ clearInterval(intervalDecrease)}, 300000);
 
 
-// ------------------------------------------------------------------
-
-
-
-
-
-
-// Every 5 seconds baby yoda's age will increase 
-//let ageTomagotchi = parseInt(document.querySelector("#ageNum").innerHTML) 
-
-// create a function that will increase the the age every few seconds
-//  function increaseAge(){
-//         ageTomagotchi += 1
-//         document.querySelector("#ageNum").innerHTML = ageTomagotchi
-//        //call the changeTomagotchi function 
-//        changeTomagotchi()
-//  }
-
-
-// let interval = setInterval(increaseAge, 3000);
-// // basically setTimeout has 2 arguments, a) the anymonous function to run(clearInterval) after b)amount of time
-// // when yoda reaches 100 stop increasing the age
-// setTimeout(function(){ clearInterval(interval)}, 300000);
 
 
 // create a function that will change the yoda's appearance when he hits a certain age
@@ -158,16 +135,4 @@ function changeTomagotchi(){
  }
 
 
-// // As time passes, baby yoda's energy, sleep and happiness will decrease
-// function decreaseMetrics(){
-//     energy.value -= 10
-//     sleep.value -= 10
-//     happiness.value -= 10
-// }
 
-
-// // call the decreaseMetrics function every 5 seconds
-// let intervalDecrease = setInterval(decreaseMetrics, 5000);
-// // basically setTimeout has 2 arguments, a) the anymonous function to run(clearInterval) after b)amount of time
-// // when yoda reaches 100 stop increasing the age
-// setTimeout(function(){ clearInterval(intervalDecrease)}, 300000);
