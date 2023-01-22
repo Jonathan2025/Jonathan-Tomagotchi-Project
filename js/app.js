@@ -61,23 +61,45 @@ playTomagotchi.addEventListener("click", playClick)
 
 // Every 5 seconds baby yoda's age will increase 
 let ageTomagotchi = parseInt(document.querySelector("#ageNum").innerHTML) 
-// console.log(ageTomagotchi)
-// ageTomagotchi += 1
-// document.querySelector("#ageNum").innerHTML = ageTomagotchi
 
 // create a function that will increase the the age every few seconds
  function increaseAge(){
         ageTomagotchi += 1
         document.querySelector("#ageNum").innerHTML = ageTomagotchi
-        
+       //call the changeTomagotchi function 
+       changeTomagotchi()
  }
 
 
- let interval = setInterval(increaseAge, 3000);
- //basically setTimeout has 2 arguments, a) the anymonous function to run(clearInterval) after b)amount of time
+let interval = setInterval(increaseAge, 3000);
+ // basically setTimeout has 2 arguments, a) the anymonous function to run(clearInterval) after b)amount of time
  // when yoda reaches 100 stop increasing the age
  setTimeout(function(){ clearInterval(interval)}, 300000);
 
 
+const yodas = document.querySelectorAll("#yodas")
+//  // here we were able to access yoda and change him to disappear
+//  yodas[0].children[0].style.display = "none"
+
+
+
+// create a function that will change the yoda's appearance when he hits a certain age
+function changeTomagotchi(){
+    const yodas = document.querySelectorAll("#yodas")
+    if (ageTomagotchi <= 10){
+        //access the children of #yodas
+        yodas[0].children[0].style.display = "block"
+        yodas[0].children[1].style.display = "none"
+        yodas[0].children[2].style.display = "none"
+    } else if (ageTomagotchi > 10 && ageTomagotchi <= 20){
+        yodas[0].children[0].style.display = "none"
+        yodas[0].children[1].style.display = "block"
+        yodas[0].children[2].style.display = "none"
+    } else if (ageTomagotchi > 20 && ageTomagotchi <= 100){
+        yodas[0].children[0].style.display = "none"
+        yodas[0].children[1].style.display = "none"
+        yodas[0].children[2].style.display = "block"
+    }
+ }
 
 

@@ -68,9 +68,15 @@ table{
     border: 3px solid black;
     padding: 5px;
     margin: 5px;
-    background-color: #45B8AC;
+    background-color: #45B8AC; */
 }
 
 
-
+/* style the progress bars  */
+progress {
+    border: 2px solid black;
+    width: 150px;
+    height: 20px;
+    color: blue;
+  }
 
