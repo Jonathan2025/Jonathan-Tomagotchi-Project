@@ -35,6 +35,7 @@ class Tomagotchi {
         this.happiness = document.getElementById("happiness")
         //this.age = parseInt(document.querySelector("#ageNum").innerHTML)
         this.age = document.querySelector("#ageNum")
+        this.phases = document.querySelectorAll("#yodas")
     }
 
     // method to name the tomagotchi
@@ -59,9 +60,30 @@ class Tomagotchi {
         this.happiness.value += 5
     }
 
+    // method that will change the tomagotchi's appearance when he hits certain ages
+    changeTomagotchiPhase(){
+        if (this.age.innerHTML <= 10){
+            //access the children of #yodas
+            this.phases[0].children[0].style.display = "block"
+            this.phases[0].children[1].style.display = "none"
+            this.phases[0].children[2].style.display = "none"
+        } else if (this.age.innerHTML > 10 && this.age.innerHTML <= 20){
+            this.phases[0].children[0].style.display = "none"
+            this.phases[0].children[1].style.display = "block"
+            this.yodas[0].children[2].style.display = "none"
+        } else if (this.age.innerHTML > 20 && this.age.innerHTML <= 100){
+            this.phases[0].children[0].style.display = "none"
+            this.phases[0].children[1].style.display = "none"
+            this.phases[0].children[2].style.display = "block"
+        }
+    }
+
+
     //setter method to increase the age of the tomagotchi by 1, every few seconds
     increaseAge(){
         this.age.innerHTML = parseInt(this.age.innerHTML) + 1
+        // also call to the change tomagotchi phase
+        this.changeTomagotchiPhase()
     }
 
     //setter method to decrease the metrics of the tomagotchi every few seconds
@@ -70,10 +92,10 @@ class Tomagotchi {
         sleep.value -= 6
         happiness.value -= 10
     }
-}
 
 
-
+ 
+ }
 
 
 // SECTION 4 - Instatiate the Tomagotchi
@@ -113,26 +135,6 @@ let intervalDecrease = setInterval(function(){tomagotchiInstance.decreaseMetrics
 setTimeout(function(){ clearInterval(intervalDecrease)}, 300000);
 
 
-
-
-// create a function that will change the yoda's appearance when he hits a certain age
-function changeTomagotchi(){
-    const yodas = document.querySelectorAll("#yodas")
-    if (ageTomagotchi <= 10){
-        //access the children of #yodas
-        yodas[0].children[0].style.display = "block"
-        yodas[0].children[1].style.display = "none"
-        yodas[0].children[2].style.display = "none"
-    } else if (ageTomagotchi > 10 && ageTomagotchi <= 20){
-        yodas[0].children[0].style.display = "none"
-        yodas[0].children[1].style.display = "block"
-        yodas[0].children[2].style.display = "none"
-    } else if (ageTomagotchi > 20 && ageTomagotchi <= 100){
-        yodas[0].children[0].style.display = "none"
-        yodas[0].children[1].style.display = "none"
-        yodas[0].children[2].style.display = "block"
-    }
- }
 
 
 
