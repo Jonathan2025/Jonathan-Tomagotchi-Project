@@ -20,7 +20,7 @@ xout.addEventListener("click", instructionsClose)
 
 
 //when we click on the "Feed Crickets" button, it will increase the energy for baby yoda
-let feedTomagotchi = document.querySelector("#feed")
+let feedTomagotchi = document.querySelector("#feedBtn")
 function feedClick () {
     let energy = document.getElementById("energy")
     // allow us to access the value of the energy bar
@@ -28,3 +28,19 @@ function feedClick () {
     energy.value += 5
 }
 feedTomagotchi.addEventListener("click", feedClick)
+
+
+
+//when we click on the "let tomagotchi sleep" button it will increase his sleep level AND
+// change the background image to night time
+let sleepTomagotchi = document.querySelector("#sleepBtn")
+function sleepClick () {
+    let sleep = document.getElementById("sleep")
+    //access the value of the sleep bar 
+    console.log(sleep.value)
+    sleep.value += 50
+    console.log(sleep.value)
+    // change the background to night time
+    document.body.style.backgroundImage = "url(/images/night-background.gif)"
+}
+sleepTomagotchi.addEventListener("click", sleepClick)
