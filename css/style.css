@@ -1,39 +1,19 @@
 /* images styling  */
-/* #backgrounds{
-    position:relative;
-} */
 
 body{
-    background-image: url("https://giffiles.alphacoders.com/212/212628.gif");
+    background-image: url(/images/day-background.gif);
     background-size:cover;
+    margin:0px;
 }
-
-
-
-#night{
-    display:block;
-    background-size: cover;
-    height:100%;
-    width:100%;
-    
-}
-
-#day{
-    display:none;
-    background-size: cover;
-    height:100%;
-    width:100%
-}
-
-/* take the full width of the screen */
-body{
-    margin:0;
-}
-
-
 
 
 /* phases of yoda styling */
+
+#yodas{
+    text-align: center;
+}
+
+
 #yoda1{
     position:absolute;
     display:block;
@@ -44,7 +24,9 @@ body{
 
 #yoda2{
     position:absolute;
-    display:none;
+    display:block;
+    height:15%;
+    width:10%;
     animation: jump 0.5s ease-in infinite;
 }
 
