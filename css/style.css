@@ -8,11 +8,13 @@ body{
 
 
 /* phases of yoda styling */
-
+/* center the yodas on the page */
 #yodas{
-    text-align: center;
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
 }
-
 
 #yoda1{
     position:absolute;
@@ -40,7 +42,7 @@ body{
     
 }
 
-/* Jump animation  */
+/* Jump animation for yodas */
 @keyframes jump {
     0% {
         transform: translateY(0);
@@ -48,4 +50,14 @@ body{
     50% {
         transform: translateY(-20px);
     }
+}
+
+
+/* style the instructions */
+aside{
+    display: block;
+    border: 3px solid black;
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
 }

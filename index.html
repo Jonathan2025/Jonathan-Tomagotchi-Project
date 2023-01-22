@@ -16,7 +16,7 @@
         <input type="button" id="instructions-button" value="Instructions">
     </div>
 
-    <!-- this is code for the instructions -->
+    <!-- section for the instructions -->
     <aside>
         <section class="instructions">
             <h2>How to Play the Game</h2>
@@ -34,15 +34,6 @@
 
     </aside>
 
-    <!-- section for the background images -->
-    <!-- <div id="backgrounds"> -->
-        <!-- day background -->
-        <!-- <img id="day" src="https://giffiles.alphacoders.com/212/212628.gif"/> -->
-        <!-- Night background -->
-        <!-- <img id="night" src="https://art.pixilart.com/59a48631f248f48.gif"/> -->
-    
-
-
     <!-- section for baby yodas forms  -->
     <div id="yodas">
         <!-- phase 1 -->
@@ -51,42 +42,44 @@
             <img id=yoda2 src="images/yoda2.png"/>
         <!-- phase 3 -->
             <img id=yoda3 src="images/yoda3.png"/>
-        <!-- phase 4
-            <img src="https://png.pngitem.com/pimgs/s/49-493977_transparent-shrek-face-png-shrek-pixel-art-maker.png"/> -->
         </div>
 
-
-    
-
-
-    
-    
     <!-- section for the metrics buttons such as feeding the tomagotchi, turning off the lights/changing background and preventing boredom -->
-    <div id="metrics-buttons"> 
-        <input type ="button" id="feed" value="Feed Crickets"/>
-        <input type ="button" id="sleep" value="Let Tomogatchi Sleep"/>
+    <!-- <div id="metrics-buttons">  -->
+        <!-- <input type ="button" id="feed" value="Feed Crickets"/> -->
+        <!-- <input type ="button" id="sleep" value="Let Tomogatchi Sleep"/>
         <input type ="button" id="play" value="Play with Lightsaber"/>
-    </div>
+    </div> -->
 
     <!-- metrics display such as Hunger Level, Sleep, Boredom and Age -->
-    <div id="metrics-display">
+    <!-- <div id="metrics-display">
         <ul>
             <li id="hunger">Energy Level</li>
             <li id="sleepiness">Sleep Level</li>
             <li id="boredom">Boredom Level</li>
             <li id="age">Age</li>
         </ul>
-    </div>
+    </div> -->
+
+
+    <!-- table displaying the buttons and respective metrics and health bars-->
+    <table>
+        <tr> 
+            <td><input type ="button" id="feed" value="Feed Crickets"/></td>
+            <td><progress id="energy" value="100" max="100"></progress></td>
+        </tr>
+        <tr> 
+            <td><input type ="button" id="sleep" value="Let Tomagotchi Sleep"/></td>
+            <td><progress id="sleep" value="100" max="100"></progress></td>
+        </tr>
+        <tr> 
+            <td><input type ="button" id="play" value="Happiness"/></td>
+            <td><progress id="happiness" value="100" max="100"></progress></td>
+        </tr>
 
 
 
-
-    
-
-
-
-<!-- section for background images ends-->
-<!-- </div> -->
+    </table>
 
 
 
