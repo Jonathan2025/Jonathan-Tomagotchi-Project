@@ -1,0 +1,69 @@
+/* images styling  */
+/* #backgrounds{
+    position:relative;
+} */
+
+body{
+    background-image: url("https://giffiles.alphacoders.com/212/212628.gif");
+    background-size:cover;
+}
+
+
+
+#night{
+    display:block;
+    background-size: cover;
+    height:100%;
+    width:100%;
+    
+}
+
+#day{
+    display:none;
+    background-size: cover;
+    height:100%;
+    width:100%
+}
+
+/* take the full width of the screen */
+body{
+    margin:0;
+}
+
+
+
+
+/* phases of yoda styling */
+#yoda1{
+    position:absolute;
+    display:block;
+    height:15%;
+    width:7%;
+    animation: jump 0.5s ease-in infinite;
+}
+
+#yoda2{
+    position:absolute;
+    display:none;
+    animation: jump 0.5s ease-in infinite;
+}
+
+#yoda3{
+    text-align: center;
+    position:absolute;
+    display:block;
+    height:15%;
+    width:10%;
+    animation: jump 0.5s ease-in infinite;
+    
+}
+
+/* Jump animation  */
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
