@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/app.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
     <div id="top-section">
         <h1>Name of Tomagotchi is </h1>
         <input type ="button" id="start" value="Start Game">
-        <input type="button" id="instructions-button" value="Instructions">
+        <input type="button" id="instructionsBtn" value="Instructions">
     </div>
 
     <!-- section for the instructions -->
@@ -28,8 +28,9 @@
             You must click on the buttons in order to keep Baby Yoda well rested, his belly full, and his boredom cured.
             Every few seconds his metrics will decrease so make sure to keep an eye on this little one!
             As time passes, baby yoda will grow larger and stronger.
-            Happy baby sitting!
+            Happy baby sitting! May the force be with you!
             </p>
+            <input type ="button" id="closeInstructions" value="Lets go!">
         </section>
 
     </aside>
@@ -76,9 +77,6 @@
             <td><input type ="button" id="play" value="Happiness"/></td>
             <td><progress id="happiness" value="100" max="100"></progress></td>
         </tr>
-
-
-
     </table>
 
 
