@@ -2,7 +2,7 @@
 
 body{
     background-image: url(/images/day-background.gif);
-    background-size:cover;
+    background-size: cover;
     background-repeat: no-repeat;
     margin:0px;
     
@@ -69,7 +69,7 @@ table{
     border: 3px solid black;
     padding: 5px;
     margin: 5px;
-    background-color: #45B8AC; */
+    background-color: #45B8AC; 
 }
 
 

@@ -45,6 +45,8 @@ class Tomagotchi {
     // click feed button to increase tomagotchi's energy each time
     feedClick(){
         this.energy.value += 5
+         //change the background to day time
+        document.body.style.backgroundImage = "url(/images/day-background.gif)"
     }
 
     // method to allow tomagotchi to sleep 
@@ -57,6 +59,10 @@ class Tomagotchi {
     // method to play with tomagotchi 
     playClick () {
         this.happiness.value += 5
+        //keep tomagotchi entertained by having them watch a lightsaber battle
+        document.body.style.backgroundImage = "url(/images/entertainment-background.gif)"
+
+        
     }
 
     // method that will change the tomagotchi's appearance when he hits certain ages
