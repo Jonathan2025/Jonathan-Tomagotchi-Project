@@ -22,8 +22,7 @@ let feedTomagotchi = document.querySelector("#feedBtn")
 let nameTomagotchi = document.querySelector("#name")
 let sleepTomagotchi = document.querySelector("#sleepBtn")
 let playTomagotchi = document.querySelector("#playBtn")
-//let ageTomagotchi = parseInt(document.querySelector("#ageNum").innerHTML) 
-
+let startButton = document.querySelector("#start")
 
 
 //SECTION 3 - Create the class that will house our tomagotchi properties and methods
@@ -93,48 +92,55 @@ class Tomagotchi {
         happiness.value -= 10
     }
 
-
- 
  }
 
 
-// SECTION 4 - Instatiate the Tomagotchi
-const tomagotchiInstance = new Tomagotchi()
-//call the name method from the class to name the tomagotchi
-tomagotchiInstance.nameTomagotchi()
+
+// SECTION 7 - Start game function, encapsultate all of the functions inside here
+function startGame(){
+    //Disable the start button once the game restarts
+    startButton.disabled = true
+
+    // SECTION 4 - Instatiate the Tomagotchi
+    const tomagotchiInstance = new Tomagotchi()
+    //call the name method from the class to name the tomagotchi
+    tomagotchiInstance.nameTomagotchi()
+
+    //SECTION 5 - Event Listeners
+    // in order to use a method from the class, we need to close over the new instance of the class with a function
+    feedTomagotchi.addEventListener("click", function(){
+        tomagotchiInstance.feedClick()})
+
+    sleepTomagotchi.addEventListener("click", function(){
+        tomagotchiInstance.sleepClick()})
+
+    playTomagotchi.addEventListener("click", function(){
+        tomagotchiInstance.playClick()})
+
+
+    // SECTION 6 - Calling class methods that dont use event listeners
+
+    // Increase age of tomagotchi
+    // need to have explicit reference to the increaseAge method in order to work 
+    let interval = setInterval(function(){tomagotchiInstance.increaseAge()}, 3000);
+    //let interval = setInterval(function(){tomagotchiInstance.increaseAge()}, 3000);
+        // basically setTimeout has 2 arguments, a) the anymonous function to run(clearInterval) after b)amount of time
+        // when tomagotchi reaches 100 stop increasing the age
+    setTimeout(function(){ clearInterval(interval)}, 300000);
+
+
+    // Decrease the metrics of the tomagotchi every few seconds
+    // call the decreaseMetrics function every 5 seconds
+    let intervalDecrease = setInterval(function(){tomagotchiInstance.decreaseMetrics()}, 5000);
+    setTimeout(function(){ clearInterval(intervalDecrease)}, 300000);
 
 
 
-
-//SECTION 5 - Event Listeners
-// in order to use a method from the class, we need to close over the new instance of the class with a function
-feedTomagotchi.addEventListener("click", function(){
-    tomagotchiInstance.feedClick()})
-
-sleepTomagotchi.addEventListener("click", function(){
-    tomagotchiInstance.sleepClick()})
-
-playTomagotchi.addEventListener("click", function(){
-    tomagotchiInstance.playClick()})
-
-
-// SECTION 6 - Calling class methods that dont use event listeners
-
-// Increase age of tomagotchi
-// need to have explicit reference to the increaseAge method in order to work 
-let interval = setInterval(function(){tomagotchiInstance.increaseAge()}, 3000);
-//let interval = setInterval(function(){tomagotchiInstance.increaseAge()}, 3000);
-    // basically setTimeout has 2 arguments, a) the anymonous function to run(clearInterval) after b)amount of time
-    // when tomagotchi reaches 100 stop increasing the age
-setTimeout(function(){ clearInterval(interval)}, 300000);
-
-
-// Decrease the metrics of the tomagotchi every few seconds
-// call the decreaseMetrics function every 5 seconds
-let intervalDecrease = setInterval(function(){tomagotchiInstance.decreaseMetrics()}, 5000);
-setTimeout(function(){ clearInterval(intervalDecrease)}, 300000);
+//Inside startGame function 
+}
 
 
 
-
+// call the start game function when we click on the start button 
+startButton.addEventListener("click", startGame)
 
