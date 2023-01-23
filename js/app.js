@@ -21,6 +21,7 @@ let nameTomagotchi = document.querySelector("#name")
 let sleepTomagotchi = document.querySelector("#sleepBtn")
 let playTomagotchi = document.querySelector("#playBtn")
 let startButton = document.querySelector("#start")
+let restartButton = document.querySelector("#restartBtn")
 
 
 //SECTION 3 - Create the class that will house our tomagotchi properties and methods
@@ -104,9 +105,9 @@ class Tomagotchi {
 
     //setter method to decrease the metrics of the tomagotchi every few seconds
     decreaseMetrics(){
-        this.energy.value -= 50
-        this.sleep.value -= 50
-        this.happiness.value -= 50
+        this.energy.value -= 12
+        this.sleep.value -= 10
+        this.happiness.value -= 13
         // call the method reachEnd ()
         this.reachEnd()
     }
@@ -153,7 +154,7 @@ function startGame(){
         tomagotchiInstance.playClick()})
 
 
-    // SECTION 7 - using setinterval to run decreaseMetrics and increaseAge methods every 5 seconds
+    // SECTION 7 - using setinterval to run decreaseMetrics and increaseAge methods every 3 seconds
     // need to have explicit reference to the increaseAge method in order to work 
     let interval = setInterval(function(){
         tomagotchiInstance.decreaseMetrics()
@@ -163,7 +164,7 @@ function startGame(){
             clearInterval(interval)
             tomagotchiInstance.endGame()
             }
-        }, 5000);
+        }, 3000);
 
 
 //Inside startGame function 
@@ -172,3 +173,5 @@ function startGame(){
 // call the start game function when we click on the start button 
 startButton.addEventListener("click", startGame)
 
+// Can restart the game 
+restartButton.addEventListener("click", startGame)
