@@ -15,8 +15,6 @@ function instructionsClose () {
 }
 xout.addEventListener("click", instructionsClose)
 
-
-
 // SECTION 2 - DEFINE the variables that select the buttons we need, our query selectors
 let feedTomagotchi = document.querySelector("#feedBtn")
 let nameTomagotchi = document.querySelector("#name")
@@ -37,23 +35,21 @@ class Tomagotchi {
     }
 
     //getter methods 
-    // Return the value of energy
+    // Return the value of energy level
     getEnergy(){
-        console.log(this.energy.value)
         return this.energy.value
     }
 
+    // return the value of sleep level
     getSleep(){
-        console.log(this.sleep.value)
         return this.sleep.value
     }
 
+    //return the value of happiness level
     getHappiness(){
         console.log(this.happiness.value)
         return this.happiness.value
     }
-
-
 
     // method to name the tomagotchi
     nameTomagotchi(){
@@ -79,8 +75,6 @@ class Tomagotchi {
         this.happiness.value += 5
         //keep tomagotchi entertained by having them watch a lightsaber battle
         document.body.style.backgroundImage = "url(/images/entertainment-background.gif)"
-
-        
     }
 
     // method that will change the tomagotchi's appearance when he hits certain ages
@@ -101,16 +95,12 @@ class Tomagotchi {
         }
     }
 
-
     //setter method to increase the age of the tomagotchi by 1, every few seconds
     increaseAge(){
         this.age.innerHTML = parseInt(this.age.innerHTML) + 1
         // also call to the change tomagotchi phase
         this.changeTomagotchiPhase()
     }
-
-    
-
 
     //setter method to decrease the metrics of the tomagotchi every few seconds
     decreaseMetrics(){
@@ -130,32 +120,28 @@ class Tomagotchi {
         }
     }
 
-
-     // When the game ends, remove tomagotchi display and play new background image
-    // stop the age counter
+     // When the game ends, remove tomagotchi display and display new background image
     endGame(){
         this.phases[0].children[0].style.display = "none"
         this.phases[0].children[1].style.display = "none"
         this.phases[0].children[2].style.display = "none"
         document.body.style.backgroundImage = "url(/images/end-background.gif)"
-        alert("END THE GAME")
+        alert("The END of the GAME")
     }
 
  }
 
-
-
-// SECTION 7 - Start game function, encapsultate all of the functions inside here
+// SECTION 4 - Start game function, encapsultate all of the functions inside here
 function startGame(){
     //Disable the start button once the game restarts
     startButton.disabled = true
 
-    // SECTION 4 - Instatiate the Tomagotchi
+    // SECTION 5 - Instatiate the Tomagotchi
     const tomagotchiInstance = new Tomagotchi()
     //call the name method from the class to name the tomagotchi
     tomagotchiInstance.nameTomagotchi()
 
-    //SECTION 5 - Event Listeners
+    //SECTION 6 - Event Listeners
     // in order to use a method from the class, we need to close over the new instance of the class with a function
     feedTomagotchi.addEventListener("click", function(){
         tomagotchiInstance.feedClick()})
@@ -167,43 +153,21 @@ function startGame(){
         tomagotchiInstance.playClick()})
 
 
-    // SECTION 6 - Calling class methods that dont use event listeners
-
-    // Increase age of tomagotchi
+    // SECTION 7 - using setinterval to run decreaseMetrics and increaseAge methods every 5 seconds
     // need to have explicit reference to the increaseAge method in order to work 
     let interval = setInterval(function(){
+        tomagotchiInstance.decreaseMetrics()
         tomagotchiInstance.increaseAge()
+        // SECTION 8 - if the method reachEnd is true, then stop the decreaseMetrics and increaseAge methods and end the game
         if (tomagotchiInstance.reachEnd() === true){
             clearInterval(interval)
             tomagotchiInstance.endGame()
             }
-        }, 3000);
-
-
-
-
-    //let interval = setInterval(function(){tomagotchiInstance.increaseAge()}, 3000);
-        // basically setTimeout has 2 arguments, a) the anymonous function to run(clearInterval) after b)amount of time
-        // when tomagotchi reaches 100 stop increasing the age
-    //setTimeout(function(){ clearInterval(interval)}, 300000);
-
-  
-    // continue to call the decreaseMetrics method every 5 seconds
-    let intervalDecrease = setInterval(function(){ 
-        tomagotchiInstance.decreaseMetrics()
-        // if the method reachEnd is true, then stop the decreaseMetrics method and end the game
-        if (tomagotchiInstance.reachEnd() === true){
-            clearInterval(intervalDecrease)
-            tomagotchiInstance.endGame()
-        }
-    }, 5000);
-
+        }, 5000);
 
 
 //Inside startGame function 
 }
-
-
 
 // call the start game function when we click on the start button 
 startButton.addEventListener("click", startGame)

@@ -1,5 +1,4 @@
 /* images styling  */
-
 body{
     background-image: url(/images/day-background.gif);
     background-size: cover;
@@ -7,7 +6,6 @@ body{
     margin:0px;
     
 }
-
 
 /* phases of yoda styling */
 /* center the yodas on the page */
@@ -43,7 +41,7 @@ body{
     animation: jump 0.5s ease-in infinite;
 }
 
-/* Jump animation for yodas */
+/* Jump animation for tomagotchi */
 @keyframes jump {
     0% {
         transform: translateY(0);
