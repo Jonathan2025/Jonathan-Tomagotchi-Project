@@ -171,11 +171,21 @@ function startGame(){
 
     // Increase age of tomagotchi
     // need to have explicit reference to the increaseAge method in order to work 
-    let interval = setInterval(function(){tomagotchiInstance.increaseAge()}, 3000);
+    let interval = setInterval(function(){
+        tomagotchiInstance.increaseAge()
+        if (tomagotchiInstance.reachEnd() === true){
+            clearInterval(interval)
+            tomagotchiInstance.endGame()
+            }
+        }, 3000);
+
+
+
+
     //let interval = setInterval(function(){tomagotchiInstance.increaseAge()}, 3000);
         // basically setTimeout has 2 arguments, a) the anymonous function to run(clearInterval) after b)amount of time
         // when tomagotchi reaches 100 stop increasing the age
-    setTimeout(function(){ clearInterval(interval)}, 300000);
+    //setTimeout(function(){ clearInterval(interval)}, 300000);
 
   
     // continue to call the decreaseMetrics method every 5 seconds
@@ -186,23 +196,9 @@ function startGame(){
             clearInterval(intervalDecrease)
             tomagotchiInstance.endGame()
         }
-    
     }, 5000);
 
 
-
-
-    // while (tomagotchiInstance.reachEnd() === false){
-    //     console.log("NO end yet!")
-    // } clearInterval(intervalDecrease)
-
-
-
-   
-    
-       
-
-    
 
 //Inside startGame function 
 }
