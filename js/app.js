@@ -124,15 +124,11 @@ class Tomagotchi {
     // this method will return a boolean of whether the metrics have reached ZERO
     reachEnd(){
         if (this.getEnergy() <= 0){
-            console.log("at end")
             return true
         } else {
-            console.log("not reach end yet")
             return false
         }
     }
-
-
 
 
      // When the game ends, remove tomagotchi display and play new background image
@@ -144,8 +140,6 @@ class Tomagotchi {
         document.body.style.backgroundImage = "url(/images/end-background.gif)"
         alert("END THE GAME")
     }
-
-   
 
  }
 
@@ -183,33 +177,26 @@ function startGame(){
         // when tomagotchi reaches 100 stop increasing the age
     setTimeout(function(){ clearInterval(interval)}, 300000);
 
-    
-
-    // continue to call the decreaseMetrics function every 5 seconds
-    let intervalDecrease = setInterval(function(){
+  
+    // continue to call the decreaseMetrics method every 5 seconds
+    let intervalDecrease = setInterval(function(){ 
         tomagotchiInstance.decreaseMetrics()
-        //tomagotchiInstance.getEnergy()
-        //tomagotchiInstance.getSleep()
-        //tomagotchiInstance.getHappiness()
+        // if the method reachEnd is true, then stop the decreaseMetrics method and end the game
+        if (tomagotchiInstance.reachEnd() === true){
+            clearInterval(intervalDecrease)
+            tomagotchiInstance.endGame()
+        }
+    
     }, 5000);
 
 
-    tomagotchiInstance.reachEnd()
 
 
-    if (tomagotchiInstance.reachEnd() === true){
-        console.log("we reached the end")
-        clearInterval(intervalDecrease)
-    }
+    // while (tomagotchiInstance.reachEnd() === false){
+    //     console.log("NO end yet!")
+    // } clearInterval(intervalDecrease)
 
 
-
-    // setTimeout(function(){
-    //     if(tomagotchiInstance.getEnergy = 0){
-    //         console.log("the set time out has ended")
-    //         clearInterval(intervalDecrease)
-    //     }
-    //    }, 300000);
 
    
     
