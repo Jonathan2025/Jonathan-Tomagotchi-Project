@@ -117,7 +117,22 @@ class Tomagotchi {
         this.energy.value -= 50
         this.sleep.value -= 50
         this.happiness.value -= 50
+        // call the method reachEnd ()
+        this.reachEnd()
     }
+
+    // this method will return a boolean of whether the metrics have reached ZERO
+    reachEnd(){
+        if (this.getEnergy() <= 0){
+            console.log("at end")
+            return true
+        } else {
+            console.log("not reach end yet")
+            return false
+        }
+    }
+
+
 
 
      // When the game ends, remove tomagotchi display and play new background image
@@ -178,12 +193,23 @@ function startGame(){
         //tomagotchiInstance.getHappiness()
     }, 5000);
 
-    setTimeout(function(){
-        if(tomagotchiInstance.getEnergy = 0){
-            console.log("the set time out has ended")
-            clearInterval(intervalDecrease)
-        }
-       }, 300000);
+
+    tomagotchiInstance.reachEnd()
+
+
+    if (tomagotchiInstance.reachEnd() === true){
+        console.log("we reached the end")
+        clearInterval(intervalDecrease)
+    }
+
+
+
+    // setTimeout(function(){
+    //     if(tomagotchiInstance.getEnergy = 0){
+    //         console.log("the set time out has ended")
+    //         clearInterval(intervalDecrease)
+    //     }
+    //    }, 300000);
 
    
     
