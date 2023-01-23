@@ -32,10 +32,28 @@ class Tomagotchi {
         this.energy = document.getElementById("energy")
         this.sleep = document.getElementById("sleep")
         this.happiness = document.getElementById("happiness")
-        //this.age = parseInt(document.querySelector("#ageNum").innerHTML)
         this.age = document.querySelector("#ageNum")
         this.phases = document.querySelectorAll("#yodas")
     }
+
+    //getter methods 
+    // Return the value of energy
+    getEnergy(){
+        console.log(this.energy.value)
+        return this.energy.value
+    }
+
+    getSleep(){
+        console.log(this.sleep.value)
+        return this.sleep.value
+    }
+
+    getHappiness(){
+        console.log(this.happiness.value)
+        return this.happiness.value
+    }
+
+
 
     // method to name the tomagotchi
     nameTomagotchi(){
@@ -75,7 +93,7 @@ class Tomagotchi {
         } else if (this.age.innerHTML > 10 && this.age.innerHTML <= 20){
             this.phases[0].children[0].style.display = "none"
             this.phases[0].children[1].style.display = "block"
-            this.yodas[0].children[2].style.display = "none"
+            this.phases[0].children[2].style.display = "none"
         } else if (this.age.innerHTML > 20 && this.age.innerHTML <= 100){
             this.phases[0].children[0].style.display = "none"
             this.phases[0].children[1].style.display = "none"
@@ -91,12 +109,28 @@ class Tomagotchi {
         this.changeTomagotchiPhase()
     }
 
+    
+
+
     //setter method to decrease the metrics of the tomagotchi every few seconds
     decreaseMetrics(){
-        energy.value -= 7
-        sleep.value -= 6
-        happiness.value -= 10
+        this.energy.value -= 50
+        this.sleep.value -= 50
+        this.happiness.value -= 50
     }
+
+
+     // When the game ends, remove tomagotchi display and play new background image
+    // stop the age counter
+    endGame(){
+        this.phases[0].children[0].style.display = "none"
+        this.phases[0].children[1].style.display = "none"
+        this.phases[0].children[2].style.display = "none"
+        document.body.style.backgroundImage = "url(/images/end-background.gif)"
+        alert("END THE GAME")
+    }
+
+   
 
  }
 
@@ -134,13 +168,28 @@ function startGame(){
         // when tomagotchi reaches 100 stop increasing the age
     setTimeout(function(){ clearInterval(interval)}, 300000);
 
+    
 
-    // Decrease the metrics of the tomagotchi every few seconds
-    // call the decreaseMetrics function every 5 seconds
-    let intervalDecrease = setInterval(function(){tomagotchiInstance.decreaseMetrics()}, 5000);
-    setTimeout(function(){ clearInterval(intervalDecrease)}, 300000);
+    // continue to call the decreaseMetrics function every 5 seconds
+    let intervalDecrease = setInterval(function(){
+        tomagotchiInstance.decreaseMetrics()
+        //tomagotchiInstance.getEnergy()
+        //tomagotchiInstance.getSleep()
+        //tomagotchiInstance.getHappiness()
+    }, 5000);
 
+    setTimeout(function(){
+        if(tomagotchiInstance.getEnergy = 0){
+            console.log("the set time out has ended")
+            clearInterval(intervalDecrease)
+        }
+       }, 300000);
 
+   
+    
+       
+
+    
 
 //Inside startGame function 
 }
