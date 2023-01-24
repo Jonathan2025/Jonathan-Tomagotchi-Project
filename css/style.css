@@ -1,3 +1,28 @@
+/* style the text */
+#game-title{
+    font-family: 'Star Wars', sans-serif;
+    letter-spacing: 0.1em;
+    background-color: #f8d31b;
+    text-align: center;
+}
+
+#name{
+    background-color: #f8d31b;
+    font-family: 'Star Wars', sans-serif;
+    max-width: 250px;
+}
+
+#age {
+    font-family: 'Star Wars', sans-serif;
+}
+
+#ageNum{
+    font-family: 'Star Wars', sans-serif;
+}
+
+
+
+
 /* images styling  */
 body{
     background-image: url(/images/day-background.gif);
@@ -41,6 +66,28 @@ body{
     animation: jump 0.5s ease-in infinite;
 }
 
+#yoda4{
+    text-align: center;
+    position:absolute;
+    display:none;
+    height:15%;
+    width:10%;
+    animation: jump 0.5s ease-in infinite;
+}
+
+#yoda5{
+    text-align: center;
+    position:absolute;
+    display:none;
+    height:15%;
+    width:10%;
+    animation: jump 0.5s ease-in infinite;
+}
+
+
+
+
+
 /* Jump animation for tomagotchi */
 @keyframes jump {
     0% {
@@ -60,7 +107,15 @@ aside{
     padding: 10px;
     margin: 10px;
     background-color: white;
+    font-family: 'Star Wars', sans-serif;
+    letter-spacing: 0.1em;
+    
 }
+
+
+
+
+
 
 /* style the metrics */
 table{
@@ -70,7 +125,6 @@ table{
     background-color: #45B8AC; 
 }
 
-
 /* style the progress bars  */
 progress {
     border: 2px solid black;
@@ -79,3 +133,14 @@ progress {
     color: blue;
   }
 
+/* style the buttons  */
+input[type="button"]{
+    border-radius: 44px;
+    background: #f8d31b;
+    box-shadow:  -37px -37px 82px #ceaf16,
+             37px 37px 82px #fff720;
+    font-family: 'Star Wars', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+                                                
+}

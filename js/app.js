@@ -22,7 +22,8 @@ let sleepTomagotchi = document.querySelector("#sleepBtn")
 let playTomagotchi = document.querySelector("#playBtn")
 let startButton = document.querySelector("#start")
 let restartButton = document.querySelector("#restartBtn")
-
+// let music = document.querySelector("#music").src
+// console.log(music)
 
 //SECTION 3 - Create the class that will house our tomagotchi properties and methods
 class Tomagotchi {
@@ -33,6 +34,8 @@ class Tomagotchi {
         this.happiness = document.getElementById("happiness")
         this.age = document.querySelector("#ageNum")
         this.phases = document.querySelectorAll("#yodas")
+        this.music = document.querySelector("#music")
+        //this.newMusic = document.createElement("audio")
     }
 
     //getter methods 
@@ -85,14 +88,32 @@ class Tomagotchi {
             this.phases[0].children[0].style.display = "block"
             this.phases[0].children[1].style.display = "none"
             this.phases[0].children[2].style.display = "none"
+            this.phases[0].children[3].style.display = "none"
+            this.phases[0].children[4].style.display = "none"
         } else if (this.age.innerHTML > 10 && this.age.innerHTML <= 20){
             this.phases[0].children[0].style.display = "none"
             this.phases[0].children[1].style.display = "block"
             this.phases[0].children[2].style.display = "none"
-        } else if (this.age.innerHTML > 20 && this.age.innerHTML <= 100){
+            this.phases[0].children[3].style.display = "none"
+            this.phases[0].children[4].style.display = "none"
+        } else if (this.age.innerHTML > 20 && this.age.innerHTML <= 30){
             this.phases[0].children[0].style.display = "none"
             this.phases[0].children[1].style.display = "none"
             this.phases[0].children[2].style.display = "block"
+            this.phases[0].children[3].style.display = "none"
+            this.phases[0].children[4].style.display = "none"
+        } else if (this.age.innerHTML > 30 && this.age.innerHTML <= 40){
+            this.phases[0].children[0].style.display = "none"
+            this.phases[0].children[1].style.display = "none"
+            this.phases[0].children[2].style.display = "none"
+            this.phases[0].children[3].style.display = "block"
+            this.phases[0].children[4].style.display = "none"
+        } else if (this.age.innerHTML > 40 && this.age.innerHTML <= 100){
+            this.phases[0].children[0].style.display = "none"
+            this.phases[0].children[1].style.display = "none"
+            this.phases[0].children[2].style.display = "none"
+            this.phases[0].children[3].style.display = "none"
+            this.phases[0].children[4].style.display = "block"
         }
     }
 
@@ -117,19 +138,21 @@ class Tomagotchi {
         if (this.getEnergy() <= 0){
             return true
         } else {
+            
             return false
         }
     }
 
-     // When the game ends, remove tomagotchi display and display new background image
+     // When the game ends, remove tomagotchi display, display new background image and changed the background music
     endGame(){
+        this.music.setAttribute("src", "/images/end-music.mp3")
         this.phases[0].children[0].style.display = "none"
         this.phases[0].children[1].style.display = "none"
         this.phases[0].children[2].style.display = "none"
         document.body.style.backgroundImage = "url(/images/end-background.gif)"
         alert("The END of the GAME")
+        
     }
-
  }
 
 // SECTION 4 - Start game function, encapsultate all of the functions inside here
@@ -160,10 +183,10 @@ function startGame(){
         tomagotchiInstance.decreaseMetrics()
         tomagotchiInstance.increaseAge()
         // SECTION 8 - if the method reachEnd is true, then stop the decreaseMetrics and increaseAge methods and end the game
-        if (tomagotchiInstance.reachEnd() === true){
-            clearInterval(interval)
-            tomagotchiInstance.endGame()
-            }
+         if (tomagotchiInstance.reachEnd() === true){
+             clearInterval(interval)
+             tomagotchiInstance.endGame()
+             }
         }, 3000);
 
 
@@ -173,5 +196,11 @@ function startGame(){
 // call the start game function when we click on the start button 
 startButton.addEventListener("click", startGame)
 
+
+
+
+
+
 // Can restart the game 
 restartButton.addEventListener("click", startGame)
+

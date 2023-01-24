@@ -7,14 +7,21 @@
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="js/app.js" defer></script>
     <title>Star Wars Tomagotchi!</title>
+    <!-- import the star wars font style  -->
+    <link href="https://fonts.cdnfonts.com/css/star-wars" rel="stylesheet">
+    <style>@import url('https://fonts.cdnfonts.com/css/star-wars');</style>
+
+
+
 </head>
 <body>
     <!-- top section will display the name of the tomagotchi,contain button to start game and instructions -->
     <div id="top-section">
-        <h1 id="name">Welcome to Star Wars Tomagotchi!</h1>
+        <h1 id="game-title">Welcome to Star Wars Tomagotchi!</h1>
+        <h2 id="name"></h2>
         <input type="button" id="start" value="Start Game">
-        <input type="button" id="instructionsBtn" value="Instructions">
-        <input type="button" id="restartBtn" value="Restart Game"
+        <input type="button" id="instructionsBtn" value="instructions">
+        <input type="button" id="restartBtn" value="Restart Game">
     </div>
 
     <!-- section for the instructions -->
@@ -22,12 +29,12 @@
         <section class="instructions">
             <h2>How to Play the Game</h2>
             <p>Welcome fearsome warrior! The Mandalorian and Boba Fett are occupied fighting against enemy stormtroopers. 
-            They will need your help to take care of Baby Yoda. Baby Yoda is a simple creature and does not require much. You just need to do a few things
-                <li>First as of right now, no one knows Baby Yoda's real name, so give him a name!</li>
-                <li>Feed Baby Yoda his yummy crickets</li>
+            They will need your help to take care of Baby yoda. Baby yoda is a simple creature and does not require much. you just need to do a few things
+                <li>First as of right now, no one knows Baby yoda's real name, so give him a name!</li>
+                <li>Feed Baby yoda his yummy crickets</li>
                 <li>Turn off the lights in the ship so he can get some sleep</li>
                 <li>Cure his curiousity and boredom by letting him watch a lightsaber fight</li>
-            You must click on the buttons in order to keep Baby Yoda well rested, his belly full, and his boredom cured.
+            you must click on the buttons in order to keep Baby yoda well rested, his belly full, and his boredom cured.
             Every few seconds his metrics will decrease so make sure to keep an eye on this little one!
             As time passes, Baby Yoda will grow stronger and older.
             Happy baby sitting! May the force be with you!
@@ -44,7 +51,11 @@
         <!-- phase 2 -->
             <img id=yoda2 src="images/yoda2.png"/>
         <!-- phase 3 -->
-            <img id=yoda3 src="images/yoda3.png"/>
+            <img id=yoda3 src="images/yoda4.png"/>
+        <!-- phase 4 -->
+            <img id=yoda4 src="images/yoda5.png"/>
+        <!-- phase 5 -->
+            <img id=yoda5 src="images/yoda3.png"/>
         </div>
 
     <!-- table displaying the buttons and respective metrics and health bars-->
@@ -66,7 +77,13 @@
             <td id="age">Age</td>
             <td id="ageNum">0</td>
         </tr>
+        <tr>
+            
+        </tr>
     </table>
+    <audio id="music" autoplay controls loop>
+        <source src="/images/starwars-theme.mp3" type="audio/mpeg">
+    </audio>
 
 
 
