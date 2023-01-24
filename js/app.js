@@ -196,11 +196,10 @@ function startGame(){
 // call the start game function when we click on the start button 
 startButton.addEventListener("click", startGame)
 
+// Can restart the game -- will reload the page
+restartButton.addEventListener("click", locationreload)
 
-
-
-
-
-// Can restart the game 
-restartButton.addEventListener("click", startGame)
+function locationreload(){
+    location.reload()
+}
 
