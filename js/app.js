@@ -135,7 +135,7 @@ class Tomagotchi {
 
     // this method will return a boolean of whether the metrics have reached ZERO
     reachEnd(){
-        if (this.getEnergy() <= 0){
+        if ((this.getEnergy() <= 0)||(this.getSleep() <= 0)||(this.getHappiness() <= 0)){
             return true
         } else {
             
