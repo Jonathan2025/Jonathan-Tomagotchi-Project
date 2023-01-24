@@ -22,8 +22,6 @@ let sleepTomagotchi = document.querySelector("#sleepBtn")
 let playTomagotchi = document.querySelector("#playBtn")
 let startButton = document.querySelector("#start")
 let restartButton = document.querySelector("#restartBtn")
-// let music = document.querySelector("#music").src
-// console.log(music)
 
 //SECTION 3 - Create the class that will house our tomagotchi properties and methods
 class Tomagotchi {
@@ -35,7 +33,8 @@ class Tomagotchi {
         this.age = document.querySelector("#ageNum")
         this.phases = document.querySelectorAll("#yodas")
         this.music = document.querySelector("#music")
-        //this.newMusic = document.createElement("audio")
+        this.restart = document.querySelector("#restartBtn")
+
     }
 
     //getter methods 
@@ -146,12 +145,13 @@ class Tomagotchi {
      // When the game ends, remove tomagotchi display, display new background image and changed the background music
     endGame(){
         this.music.setAttribute("src", "/images/end-music.mp3")
+        this.restart.disabled = false
         this.phases[0].children[0].style.display = "none"
         this.phases[0].children[1].style.display = "none"
         this.phases[0].children[2].style.display = "none"
         document.body.style.backgroundImage = "url(/images/end-background.gif)"
-        alert("The END of the GAME")
-        
+        alert("Your tomagotchi went to heaven. Brace yourself for planetary annihilation!")
+
     }
  }
 
@@ -164,6 +164,8 @@ function startGame(){
     const tomagotchiInstance = new Tomagotchi()
     //call the name method from the class to name the tomagotchi
     tomagotchiInstance.nameTomagotchi()
+    //disable the restart button until the end
+    tomagotchiInstance.restart.disabled = true
 
     //SECTION 6 - Event Listeners
     // in order to use a method from the class, we need to close over the new instance of the class with a function

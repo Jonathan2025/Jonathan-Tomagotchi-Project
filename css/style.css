@@ -144,3 +144,9 @@ input[type="button"]{
     letter-spacing: 0.2em;
                                                 
 }
+
+
+
+#restartBtn{
+    display: "none";
+}
