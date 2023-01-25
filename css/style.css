@@ -128,10 +128,28 @@ table{
 /* style the progress bars  */
 progress {
     border: 2px solid black;
-    width: 150px;
-    height: 20px;
-    color: blue;
+    width: 200px;
+    height: 30px;
+    background-color: gray;
   }
+
+  progress {
+    color: #2E67F8;
+  }
+  
+  progress::-moz-progress-bar {
+    background: gray;
+  }
+  
+  progress::-webkit-progress-value {
+    background: #2E67F8;
+  }
+  
+  progress::-webkit-progress-bar {
+    background: gray;
+  }
+
+
 
 /* style the buttons  */
 input[type="button"]{

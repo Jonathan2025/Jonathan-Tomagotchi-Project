@@ -146,9 +146,12 @@ class Tomagotchi {
     endGame(){
         this.music.setAttribute("src", "/images/end-music.mp3")
         this.restart.disabled = false
-        this.phases[0].children[0].style.display = "none"
-        this.phases[0].children[1].style.display = "none"
-        this.phases[0].children[2].style.display = "none"
+
+        // loop through the yoda phases and set the display to each of them as "none"
+        for (let i=0; i<this.phases[0].children.length; i++){
+            this.phases[0].children[i].style.display = "none"
+        }
+
         document.body.style.backgroundImage = "url(/images/end-background.gif)"
         alert("Your tomagotchi went to heaven. Brace yourself for planetary annihilation!")
 
@@ -195,10 +198,50 @@ function startGame(){
 //Inside startGame function 
 }
 
+function startGame(){
+    //Disable the start button once the game restarts
+    startButton.disabled = true
+
+    // SECTION 5 - Instatiate the Tomagotchi
+    const tomagotchiInstance = new Tomagotchi()
+    //call the name method from the class to name the tomagotchi
+    tomagotchiInstance.nameTomagotchi()
+    //disable the restart button until the end
+    tomagotchiInstance.restart.disabled = true
+
+    //SECTION 6 - Event Listeners
+    // in order to use a method from the class, we need to close over the new instance of the class with a function
+    feedTomagotchi.addEventListener("click", function(){
+        tomagotchiInstance.feedClick()})
+
+    sleepTomagotchi.addEventListener("click", function(){
+        tomagotchiInstance.sleepClick()})
+
+    playTomagotchi.addEventListener("click", function(){
+        tomagotchiInstance.playClick()})
+
+
+    // SECTION 7 - using setinterval to run decreaseMetrics and increaseAge methods every 3 seconds
+    // need to have explicit reference to the increaseAge method in order to work 
+    let interval = setInterval(function(){
+        tomagotchiInstance.decreaseMetrics()
+        tomagotchiInstance.increaseAge()
+        // SECTION 8 - if the method reachEnd is true, then stop the decreaseMetrics and increaseAge methods and end the game
+         if (tomagotchiInstance.reachEnd() === true){
+             clearInterval(interval)
+             tomagotchiInstance.endGame()
+             }
+        }, 3000);
+
+
+//Inside startGame function 
+}
+
 // call the start game function when we click on the start button 
 startButton.addEventListener("click", startGame)
 
-// Can restart the game -- will reload the page
+
+// Section 9 - Can restart the game -- will reload the page
 restartButton.addEventListener("click", locationreload)
 
 function locationreload(){
