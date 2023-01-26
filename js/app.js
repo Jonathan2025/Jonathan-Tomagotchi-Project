@@ -34,7 +34,6 @@ class Tomagotchi {
         this.phases = document.querySelectorAll("#yodas")
         this.music = document.querySelector("#music")
         this.restart = document.querySelector("#restartBtn")
-
     }
 
     //getter methods 
@@ -190,8 +189,7 @@ function startGame(){
              tomagotchiInstance.endGame()
              }
         }, 3000);
-
-
+        
 //Inside startGame function 
 }
 
