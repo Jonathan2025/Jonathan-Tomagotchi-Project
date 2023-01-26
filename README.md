@@ -13,7 +13,7 @@ How I would improve this project - I think ways I would improve this project is 
 
 
 
-Citations Section 
+CITATIONS SECTION
 Main Music - Star Wars Theme 
 http://soundfxcenter.com/download-sound/star-wars-main-theme-song/
 
