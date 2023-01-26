@@ -20,9 +20,6 @@
     font-family: 'Star Wars', sans-serif;
 }
 
-
-
-
 /* images styling  */
 body{
     background-image: url(/images/day-background.gif);
@@ -45,7 +42,7 @@ body{
     position:absolute;
     display:block;
     height:15%;
-    width:7%;
+    width:8%;
     animation: jump 0.5s ease-in infinite;
 }
 
@@ -85,9 +82,6 @@ body{
 }
 
 
-
-
-
 /* Jump animation for tomagotchi */
 @keyframes jump {
     0% {
@@ -111,11 +105,6 @@ aside{
     letter-spacing: 0.1em;
     
 }
-
-
-
-
-
 
 /* style the metrics */
 table{
@@ -158,11 +147,10 @@ input[type="button"]{
     box-shadow:  -37px -37px 82px #ceaf16,
              37px 37px 82px #fff720;
     font-family: 'Star Wars', sans-serif;
-    font-size: 10px;
+    font-size: 15px;
     letter-spacing: 0.2em;
-                                                
-}
 
+}
 
 
 #restartBtn{

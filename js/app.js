@@ -119,8 +119,6 @@ class Tomagotchi {
     //setter method to increase the age of the tomagotchi by 1, every few seconds
     increaseAge(){
         this.age.innerHTML = parseInt(this.age.innerHTML) + 1
-        // also call to the change tomagotchi phase
-        this.changeTomagotchiPhase()
     }
 
     //setter method to decrease the metrics of the tomagotchi every few seconds
@@ -128,8 +126,6 @@ class Tomagotchi {
         this.energy.value -= 12
         this.sleep.value -= 10
         this.happiness.value -= 13
-        // call the method reachEnd ()
-        this.reachEnd()
     }
 
     // this method will return a boolean of whether the metrics have reached ZERO
@@ -137,7 +133,6 @@ class Tomagotchi {
         if ((this.getEnergy() <= 0)||(this.getSleep() <= 0)||(this.getHappiness() <= 0)){
             return true
         } else {
-            
             return false
         }
     }
@@ -187,45 +182,8 @@ function startGame(){
     let interval = setInterval(function(){
         tomagotchiInstance.decreaseMetrics()
         tomagotchiInstance.increaseAge()
-        // SECTION 8 - if the method reachEnd is true, then stop the decreaseMetrics and increaseAge methods and end the game
-         if (tomagotchiInstance.reachEnd() === true){
-             clearInterval(interval)
-             tomagotchiInstance.endGame()
-             }
-        }, 3000);
-
-
-//Inside startGame function 
-}
-
-function startGame(){
-    //Disable the start button once the game restarts
-    startButton.disabled = true
-
-    // SECTION 5 - Instatiate the Tomagotchi
-    const tomagotchiInstance = new Tomagotchi()
-    //call the name method from the class to name the tomagotchi
-    tomagotchiInstance.nameTomagotchi()
-    //disable the restart button until the end
-    tomagotchiInstance.restart.disabled = true
-
-    //SECTION 6 - Event Listeners
-    // in order to use a method from the class, we need to close over the new instance of the class with a function
-    feedTomagotchi.addEventListener("click", function(){
-        tomagotchiInstance.feedClick()})
-
-    sleepTomagotchi.addEventListener("click", function(){
-        tomagotchiInstance.sleepClick()})
-
-    playTomagotchi.addEventListener("click", function(){
-        tomagotchiInstance.playClick()})
-
-
-    // SECTION 7 - using setinterval to run decreaseMetrics and increaseAge methods every 3 seconds
-    // need to have explicit reference to the increaseAge method in order to work 
-    let interval = setInterval(function(){
-        tomagotchiInstance.decreaseMetrics()
-        tomagotchiInstance.increaseAge()
+        tomagotchiInstance.reachEnd()
+        tomagotchiInstance.changeTomagotchiPhase()
         // SECTION 8 - if the method reachEnd is true, then stop the decreaseMetrics and increaseAge methods and end the game
          if (tomagotchiInstance.reachEnd() === true){
              clearInterval(interval)
