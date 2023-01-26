@@ -1,6 +1,6 @@
 # Jonathan-Tomagotchi-Project
 
-Purpose - This was a tomagotchi project that I had done during the General Assembly Software Engineering Immersive Program. The purpose of this project was to take everything we learned so far in Javascript, HTML and CSS to create a functioning Tomagotchi game. We needed to put together a web page using HTML and then style it using CSS. The rest of the functionality for the game such as the buttons came from using Javascript. 
+Purpose -This was a tomagotchi project that I had done during the General Assembly Software Engineering Immersive Program. The purpose of this project was to take everything we learned so far in Javascript, HTML and CSS to create a functioning Tomagotchi game. We needed to put together a web page using HTML and then style it using CSS. The rest of the functionality for the game such as the buttons came from using Javascript. 
 
 How it works - Essentially the goal of the game is to keep your pet or tomagotchi levels of hunger, sleepiness or boredom from reaching zero for as long as possible. The way to do that is to keep feeding it, allowing it to sleep, or entertaining it by clicking the buttons. Once the tomagotchi passes on, the player will be prompted with an end message, some end music, and a suprise image! However, not all hope is lost as the player is able to restart the game by pressing on the "A New Hope" button. If you are a die-hard Star Wars fan like I am, you'll see what I did there!
 
@@ -14,6 +14,8 @@ How I would improve this project - I think ways I would improve this project is 
 
 
 CITATIONS SECTION
+
+
 Main Music - Star Wars Theme 
 http://soundfxcenter.com/download-sound/star-wars-main-theme-song/
 
