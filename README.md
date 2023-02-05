@@ -1,4 +1,4 @@
-# Jonathan-Tomagotchi-Project
+Jonathan's Tomagotchi Project
 
 Purpose -This was a tomagotchi project that I had done during the General Assembly Software Engineering Immersive Program. The purpose of this project was to take everything we learned so far in Javascript, HTML and CSS to create a functioning Tomagotchi game. We needed to put together a web page using HTML and then style it using CSS. The rest of the functionality for the game such as the buttons came from using Javascript. 
 
